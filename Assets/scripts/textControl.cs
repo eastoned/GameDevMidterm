@@ -7,18 +7,23 @@ public class textControl : MonoBehaviour {
 	public Text block1;
 	public Text block2;
 	public Text block3;
+	public Text mainBox;
+	public Text timer;
 
-	public GameObject box1;
-	public GameObject box2;
-	public GameObject box3;
 
+
+
+	public static string[] commands = { "Cube1", "Cube2", "Cube3" };
 	string[] textArray = {"one", "two", "three"};
-	int randomInt;
 
+	void Start(){
+		
+	}
 
 	void Update(){
-		randomInt = Random.Range (0, 3);
-		block1.text = textArray[randomInt];
+		timer.text = Mathf.RoundToInt(gameManager.timer).ToString();
+		mainBox.text = "Mouse over Box #" + (gameManager.randomInt +1 );
+		block1.text = textArray[gameManager.randomInt];
 		if(Input.GetKey(KeyCode.Space)){
 			block2.text = textArray[0];
 		}else{
@@ -30,7 +35,12 @@ public class textControl : MonoBehaviour {
 		}else{
 			block3.text = textArray[1];
 		}
+
+
+
 	}
 
 
-}
+	}
+
+
