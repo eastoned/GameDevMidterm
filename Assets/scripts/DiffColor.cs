@@ -4,10 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DiffColor : MonoBehaviour {
-	//private Renderer rend;
+	public Color[] commandColors = new Color[3];
+	private Color lerpToThis;
+	private Renderer rend;
+	private Text textColor;
 
 	void Start(){
-		//rend = GetComponent<Renderer>();
+		if (this.gameObject.CompareTag("Wall")){
+			rend = GetComponent<Renderer> ();
+		}
+		if(this.gameObject.CompareTag("gameText")){
+			textColor = GetComponent<Text>();
+		}
 	}
 
+	void Update(){
+		lerpToThis = commandColors[gameManager.randomInt];
+
+		if (this.gameObject.CompareTag ("Wall")) {
+			rend.material.color = lerpToThis;
+		} else if (this.gameObject.CompareTag("gameText")) {
+			textColor.color = Color.black;
+		}
+	}
+		
 }

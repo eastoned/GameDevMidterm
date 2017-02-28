@@ -7,11 +7,11 @@ public class changeScale : MonoBehaviour {
 	private float currentScaleY;
 	private float currentScaleZ;
 
-	private float scaleFactor;
-
 	private float largerScaleX = 3f;
 	private float largerScaleY = 3f;
 	private float largerScaleZ = 3f;
+
+	private float scaleFactor;
 
 	private float currentPosX;
 	private float currentPosY;
@@ -25,6 +25,7 @@ public class changeScale : MonoBehaviour {
 	public static bool isShaking = false;
 
 	public int shakeAmount;
+
 	// Use this for initialization
 	void Start () {
 		currentScaleX = this.GetComponent<Transform>().localScale.x;

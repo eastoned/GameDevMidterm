@@ -5,17 +5,18 @@ using UnityEngine;
 public class LookingAt : MonoBehaviour {
 	public static string lookingAt = "";
 	public GameObject mousePart;
-	private Vector3 mousePos;
+	private Vector3 thisPosition;
 
 	void Start(){
-		mousePos.x = Input.mousePosition.x/Screen.width;
-		mousePos.y = Input.mousePosition.y/Screen.height;
+		thisPosition = this.GetComponent<Transform>().position;
 
+	}
+	void OnMouseEnter(){
+		GameObject clone = (GameObject)Instantiate (mousePart, thisPosition, Quaternion.identity);
+		Destroy (clone, .5f);
 	}
 	void OnMouseOver(){
 		lookingAt = this.tag.ToString();
-		GameObject clone = (GameObject)Instantiate (mousePart, mousePos, Quaternion.identity);
-		Destroy (clone, .5f);
 	}
 
 }

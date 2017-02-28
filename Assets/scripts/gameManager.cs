@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class gameManager : MonoBehaviour {
+	
 	private int answerRight = 0;
 	private int answerWrong = 0;
-	public static float timer = 10;
+	public static float timer = 3;
 
 	public static int randomInt;
 
@@ -21,7 +22,7 @@ public class gameManager : MonoBehaviour {
 
 	void Start(){
 		
-		randomInt = 0;
+		randomInt = Random.Range(0,3);
 
 		randomPos = Random.Range(0, 6);
 			if (randomPos == 0) {
@@ -70,7 +71,7 @@ public class gameManager : MonoBehaviour {
 	// Use this for initialization
 	void GenerateCommand() {
 		randomInt = Random.Range(0,3);
-		timer = 10;
+		timer = 3;
 
 		randomPos = Random.Range(0, 6);
 		if (randomPos == 0) {
@@ -119,7 +120,7 @@ public class gameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (answerRight >= 10) {
+		if (answerRight >= 20) {
 			goodEnding ();
 		} else if (answerWrong >= 10) {
 			badEnding ();

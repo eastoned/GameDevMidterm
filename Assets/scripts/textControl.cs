@@ -4,37 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class textControl : MonoBehaviour {
-	public Text block1;
-	public Text block2;
-	public Text block3;
+	
 	public Text mainBox;
 	public Text timer;
 
-
-
-
 	public static string[] commands = { "Cube1", "Cube2", "Cube3" };
-	string[] textArray = {"one", "two", "three"};
+	private string[] cubeColors = { "blue", "red", "green" };
+
+	//string[] textArray = {"one", "two", "three"};
+
 
 	void Start(){
-		
 	}
 
 	void Update(){
+		//shows timer and box to mouse over
 		timer.text = Mathf.RoundToInt(gameManager.timer).ToString();
-		mainBox.text = "Mouse over Box #" + (gameManager.randomInt +1 );
-		block1.text = textArray[gameManager.randomInt];
-		if(Input.GetKey(KeyCode.Space)){
-			block2.text = textArray[0];
-		}else{
-			block2.text = textArray[1];
-		}
-	
-		if (changeScale.isScalingUp == true){
-			block3.text = textArray [2];
-		}else{
-			block3.text = textArray[1];
-		}
+		mainBox.text = "Mouse over the " + (cubeColors[gameManager.randomInt]) + " cube";
+
 		if (gameManager.wonGame == true) {
 			mainBox.text = "You WON!";
 		}

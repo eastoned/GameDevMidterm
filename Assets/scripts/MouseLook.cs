@@ -14,8 +14,8 @@ public class MouseLook : MonoBehaviour { // REMEMBER: put this on Main Camera!!!
 		}
 
 		// 1. get mouse input data
-		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 300f; // horizontal mouseSpeed
-		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 200f; // vertical mouseSpeed
+		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 100f; // horizontal mouseSpeed
+		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 50f; // vertical mouseSpeed
 
 		// 2. rotate the camera
 		transform.Rotate( 0f, mouseX, 0f );
