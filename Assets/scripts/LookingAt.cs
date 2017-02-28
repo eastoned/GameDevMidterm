@@ -18,5 +18,4 @@ public class LookingAt : MonoBehaviour {
 		Destroy (clone, .5f);
 	}
 
-
 }

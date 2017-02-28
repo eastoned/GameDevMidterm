@@ -35,6 +35,12 @@ public class textControl : MonoBehaviour {
 		}else{
 			block3.text = textArray[1];
 		}
+		if (gameManager.wonGame == true) {
+			mainBox.text = "You WON!";
+		}
+		if (gameManager.lostGame == true) {
+			mainBox.text = "You LOST!";
+		}
 
 
 
