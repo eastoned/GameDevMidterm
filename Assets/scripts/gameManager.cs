@@ -6,24 +6,26 @@ public class gameManager : MonoBehaviour {
 	
 	private int answerRight = 0;
 	private int answerWrong = 0;
-	public static float timer = 3;
+	public static float timer = 10;
 
+	public static int difficultyCounter = 0;
 	public static int randomInt;
 
 	public GameObject[] spawnPos = new GameObject[3];
 	public GameObject[] itemToPlace = new GameObject[3];
+	private GameObject[] spawnedObject = new GameObject[3];
 
 	private int randomPos;
 
 	public static bool wonGame = false;
 	public static bool lostGame = false;
 
-	private GameObject[] spawnedObject = new GameObject[3];
+
 
 	void Start(){
 		
 		randomInt = Random.Range(0,3);
-
+		//CONTROLS SPAWNING
 		randomPos = Random.Range(0, 6);
 			if (randomPos == 0) {
 				for (int i = 0; i < 3; i++) {
@@ -70,9 +72,11 @@ public class gameManager : MonoBehaviour {
 	}
 	// Use this for initialization
 	void GenerateCommand() {
+		//restarts timer and gives new command
 		randomInt = Random.Range(0,3);
-		timer = 3;
+		timer = 10;
 
+		//CONTROLS SPAWNING
 		randomPos = Random.Range(0, 6);
 		if (randomPos == 0) {
 			for (int i = 0; i < 3; i++) {
@@ -127,6 +131,7 @@ public class gameManager : MonoBehaviour {
 		}
 
 		timer -= Time.deltaTime;
+
 		if (LookingAt.lookingAt == textControl.commands[randomInt]) {
 			answerRight += 1;
 			Debug.Log ("DING DING DING" + answerRight);

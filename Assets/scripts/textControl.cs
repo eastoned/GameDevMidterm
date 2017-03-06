@@ -20,8 +20,8 @@ public class textControl : MonoBehaviour {
 	void Update(){
 		//shows timer and box to mouse over
 		timer.text = Mathf.RoundToInt(gameManager.timer).ToString();
-		mainBox.text = "Mouse over the " + (cubeColors[gameManager.randomInt]) + " cube";
-
+		mainBox.text = "Click the " + (cubeColors[gameManager.randomInt]) + " cube";
+		//mainbox.text
 		if (gameManager.wonGame == true) {
 			mainBox.text = "You WON!";
 		}

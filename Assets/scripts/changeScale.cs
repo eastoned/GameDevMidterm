@@ -36,9 +36,6 @@ public class changeScale : MonoBehaviour {
 		currentPosY = this.GetComponent<Transform>().position.y;
 		currentPosZ = this.GetComponent<Transform>().position.z;
 
-		furtherPosx = currentPosX - 1f;
-		furtherPosY = currentPosY - 1f;
-		furtherPosZ = currentPosZ - 1f;
 
 	}
 
@@ -68,12 +65,12 @@ public class changeScale : MonoBehaviour {
 		}
 	}
 	IEnumerator shakeObject(){
-		shakeAmount = Random.Range(0, 3);
+		shakeAmount = 0;
 		isShaking = true;
 		for (float i = 0; i < 1; i += .2f) {
-			this.gameObject.transform.position = new Vector3 (Mathf.Lerp (currentPosX, furtherPosx + shakeAmount, i), Mathf.Lerp (currentPosY, furtherPosY + shakeAmount, i), Mathf.Lerp (currentPosZ, furtherPosZ + shakeAmount, i));
+			this.gameObject.transform.position = new Vector3 (Mathf.Lerp (currentPosX, currentPosX + shakeAmount, i), Mathf.Lerp (currentPosY, currentPosY + shakeAmount, i), Mathf.Lerp (currentPosZ, currentPosZ + shakeAmount, i));
 			yield return new WaitForSeconds (.1f);
-			this.gameObject.transform.position = new Vector3 (Mathf.Lerp (furtherPosx + shakeAmount, currentPosX, i), Mathf.Lerp (furtherPosY + shakeAmount, currentPosY, i), Mathf.Lerp (furtherPosZ + shakeAmount, currentPosZ, i));
+			this.gameObject.transform.position = new Vector3 (Mathf.Lerp (currentPosX + shakeAmount, currentPosX, i), Mathf.Lerp (currentPosY + shakeAmount, currentPosY, i), Mathf.Lerp (currentPosZ + shakeAmount, currentPosZ, i));
 			yield return new WaitForSeconds (.1f);
 		}
 	}

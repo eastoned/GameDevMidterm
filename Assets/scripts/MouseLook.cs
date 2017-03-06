@@ -10,7 +10,7 @@ public class MouseLook : MonoBehaviour { // REMEMBER: put this on Main Camera!!!
 		// 0. lock the mouse to make first person looking easier
 		if ( Input.GetMouseButton(0) ) {
 			Cursor.lockState = CursorLockMode.Locked; // lock cursor always in middle of screen
-			Cursor.visible = true; // turn cursor invisible
+			Cursor.visible = false; // turn cursor invisible
 		}
 
 		// 1. get mouse input data

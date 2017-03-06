@@ -10,21 +10,20 @@ public class DiffColor : MonoBehaviour {
 	private Text textColor;
 
 	void Start(){
-		if (this.gameObject.CompareTag("Wall")){
 			rend = GetComponent<Renderer> ();
-		}
-		if(this.gameObject.CompareTag("gameText")){
-			textColor = GetComponent<Text>();
-		}
+	
 	}
 
 	void Update(){
 		lerpToThis = commandColors[gameManager.randomInt];
-
-		if (this.gameObject.CompareTag ("Wall")) {
-			rend.material.color = lerpToThis;
-		} else if (this.gameObject.CompareTag("gameText")) {
-			textColor.color = Color.black;
+		if (lerpToThis != rend.material.color) {
+			StartCoroutine ("lerpColor");
+		}
+	}
+	IEnumerator lerpColor(){
+		for (float i = 0; i < 1; i += .01f) {
+			rend.material.color = new Color (Mathf.Lerp (lerpToThis.r, rend.material.color.r, i), Mathf.Lerp (lerpToThis.g, rend.material.color.g, i), Mathf.Lerp (lerpToThis.b, rend.material.color.b, i));
+			yield return new WaitForSeconds (1f);
 		}
 	}
 		
