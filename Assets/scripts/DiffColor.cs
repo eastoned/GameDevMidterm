@@ -15,7 +15,7 @@ public class DiffColor : MonoBehaviour {
 	}
 
 	void Update(){
-		lerpToThis = commandColors[gameManager.randomInt];
+		lerpToThis = commandColors[gameManager.randomObject];
 		if (lerpToThis != rend.material.color) {
 			StartCoroutine ("lerpColor");
 		}

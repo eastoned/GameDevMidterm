@@ -259,6 +259,7 @@ ModelImporter:
     2300150: pCube83
     2300152: pCube85
     2300154: pCube9
+    2300156: //RootNode
     3300000: pCube10
     3300002: pCube11
     3300004: pCube12
@@ -337,6 +338,7 @@ ModelImporter:
     3300150: pCube83
     3300152: pCube85
     3300154: pCube9
+    3300156: //RootNode
     4300000: pCube3
     4300002: pCube4
     4300004: pCube5

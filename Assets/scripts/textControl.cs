@@ -8,20 +8,15 @@ public class textControl : MonoBehaviour {
 	public Text mainBox;
 	public Text timer;
 
-	public static string[] commands = { "Cube1", "Cube2", "Cube3" };
-	private string[] cubeColors = { "blue", "red", "green" };
-
-	//string[] textArray = {"one", "two", "three"};
-
-
-	void Start(){
-	}
+	private string[] randomReactCommands = { "Check out this ", "What do you think about that ", "Let me tell you about another " };
+	private string[] randomObjectCommands = { "Instagram", "Netflix series", "Spotify playlist" };
 
 	void Update(){
 		//shows timer and box to mouse over
 		timer.text = Mathf.RoundToInt(gameManager.timer).ToString();
-		mainBox.text = "Click the " + (cubeColors[gameManager.randomInt]) + " cube";
-		//mainbox.text
+		//if (gameManager.random
+		mainBox.text = randomReactCommands[gameManager.randomCommand].ToString() + randomObjectCommands[gameManager.randomObject].ToString();
+
 		if (gameManager.wonGame == true) {
 			mainBox.text = "You WON!";
 		}

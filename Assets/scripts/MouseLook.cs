@@ -29,7 +29,5 @@ public class MouseLook : MonoBehaviour { // REMEMBER: put this on Main Camera!!!
 		// transform.eulerAngles.z = 0f; // this will NOT work, you can NOT set the value
 		transform.localEulerAngles = new Vector3( upDownLook, transform.localEulerAngles.y, 0f );
 	}
-	void OnMouseEnter(){
-		Debug.Log ("this");
-	}
+
 }

@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class gameManager : MonoBehaviour {
-	
+
 	private int answerRight = 0;
 	private int answerWrong = 0;
 	public static float timer = 10;
 
 	public static int difficultyCounter = 0;
-	public static int randomInt;
+	public static int randomCommand;
+	public static int randomObject;
 
 	public GameObject[] spawnPos = new GameObject[3];
 	public GameObject[] itemToPlace = new GameObject[3];
 	private GameObject[] spawnedObject = new GameObject[3];
-
+	private string[] objects = { "Phone", "Laptop", "Speaker" };
 	private int randomPos;
 
 	public static bool wonGame = false;
 	public static bool lostGame = false;
 
-
+	//need COUNTDOWN FIRST
 
 	void Start(){
-		
-		randomInt = Random.Range(0,3);
+		randomCommand = Random.Range (0, 3);
+		randomObject = Random.Range (0, 3);
 		//CONTROLS SPAWNING
 		randomPos = Random.Range(0, 6);
 			if (randomPos == 0) {
@@ -73,8 +74,15 @@ public class gameManager : MonoBehaviour {
 	// Use this for initialization
 	void GenerateCommand() {
 		//restarts timer and gives new command
-		randomInt = Random.Range(0,3);
-		timer = 10;
+		randomCommand = Random.Range (0, 3);
+		randomObject = Random.Range (0, 3);
+		if (difficultyCounter == 0) {
+			timer = 10;
+		} else if (difficultyCounter == 1) {
+			timer = 5;
+		} else if (difficultyCounter == 2) {
+			timer = 3;
+		}
 
 		//CONTROLS SPAWNING
 		randomPos = Random.Range(0, 6);
@@ -124,15 +132,20 @@ public class gameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (answerRight >= 20) {
+		if (answerRight >= 10 && answerRight <=15) {
+			difficultyCounter = 1;
+		} else if (answerRight >= 16 && answerRight <= 24) {
+			difficultyCounter = 2;
+		} else if (answerRight >= 25) {
 			goodEnding ();
-		} else if (answerWrong >= 10) {
+		}
+		if (answerWrong >= 15) {
 			badEnding ();
 		}
 
 		timer -= Time.deltaTime;
 
-		if (LookingAt.lookingAt == textControl.commands[randomInt]) {
+		if (objects[randomObject] == LookingAt.lookingAt && randomCommand == particleControl.currentReaction) {
 			answerRight += 1;
 			Debug.Log ("DING DING DING" + answerRight);
 			DestroyImmediate(spawnedObject[0]);

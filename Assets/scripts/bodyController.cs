@@ -13,7 +13,6 @@ public class bodyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButton (0)) {
-			Debug.Log ("HELLOOO BUTTON");
 			bodyOpen.SetActive(false);
 			bodyClosed.SetActive(true);
 			isLeaning = true;
